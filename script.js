@@ -7,6 +7,7 @@ $(document).ready(function() {
   let timeLeft = 5; // Initial time left for revealing cards
   let timeLeftCenter = 5; // Initial time left for revealing center mycard
   let chosenArray = []; // Static array of size 8
+  let processingGuess = false;
 
   // Function to hide all cards except the center mycard
   function hideCards() {
@@ -20,10 +21,15 @@ $(document).ready(function() {
 
   // Function to shuffle the chosenArray
   function shuffleChosenArray() {
-      chosenArray = [];
-      for (let i = 0; i < 8; i++) {
-          chosenArray.push(Math.floor(Math.random() * 26));
-      }
+    chosenArray = new Set(); // Create a set to store unique numbers
+
+    // Generate eight unique random numbers
+    while (chosenArray.size < 8) {
+        let randomNumber = Math.floor(Math.random() * 26); // Generate random number between 0 and 26
+        chosenArray.add(randomNumber); // Add the random number to the set
+    }
+
+    chosenArray = Array.from(chosenArray); // Convert the set back to an array
   }
 
   // Function to set the inner text of cards randomly
@@ -48,6 +54,8 @@ function setCardTexts() {
   // Function to reset the game
   function resetGame() {
     timeLeft = 8; // Reset the time left for revealing cards
+    clearInterval(timer);
+    
     $("#time-left").text(timeLeft);
     const cards = $(".mycard"); // Select all cards
 
@@ -58,6 +66,7 @@ function setCardTexts() {
 
     revealCards(); // Reveal all cards
     $("#r2c2, .selected").css("background-color", "");
+    $('#r2c2').removeClass("hidden");
     $(".mycard").removeClass("selected"); // Deselect all cards
 }
 
@@ -99,6 +108,11 @@ function revealCenterCard() {
 
   // Function to handle mycard click
   function handleCardClick() {
+    if (processingGuess) {
+        return; // Ignore further clicks
+    }
+    else {
+        processingGuess = true;
       revealCards(); // Reveal all cards
       $(this).addClass("selected"); // Select the clicked mycard
       if ($(this).text() === $("#r2c2").text()) {
@@ -119,7 +133,8 @@ function revealCenterCard() {
       setTimeout(function() {
           $("#r2c2, .selected").css("background-color", "");
           resetGame();
-      }, 10000);
+      }, 4000);
+    }
   }
 
   // Function to reset the game

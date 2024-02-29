@@ -78,8 +78,10 @@ body {
 @media screen and (max-width: 576px) {
     /* Styles for screens up to 576px wide (e.g., phones) */
     #curr-status {
+        text-align: left;
         font-size: small;
         min-height: auto; /* Allow height to adjust dynamically */
+        padding: 2px;
     }
 
 }
