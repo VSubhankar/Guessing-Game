@@ -55,6 +55,7 @@ function setCardTexts() {
   function resetGame() {
     timeLeft = 8; // Reset the time left for revealing cards
     clearInterval(timer);
+    processingGuess = false;
     
     $("#time-left").text(timeLeft);
     const cards = $(".mycard"); // Select all cards
@@ -166,4 +167,3 @@ $("#rules-btn").click(function() {
     // Call the function to display the rules as a prompt
     displayRules();
 });
-
