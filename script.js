@@ -83,7 +83,7 @@ function setCardTexts() {
               hideCards(); // Hide all non-center cards
               setTimeout(function() {
                   revealCenterCard(); // Reveal the center mycard after 2 seconds
-                  $('#curr-status').text("Playing Game, Guess the matching pair of center mycard");
+                  $('#curr-status').text("Playing Game,\n Guess the matching pair of center Card");
               }, 2000);
           }
       }, 1000);
