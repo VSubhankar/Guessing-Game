@@ -104,14 +104,14 @@ function revealCenterCard() {
       if ($(this).text() === $("#r2c2").text()) {
           // Matched
           $("#r2c2, .selected").css("background-color", "green");
-          $('#curr-status').text("Game Ended,Guesed Correctly Congrats 🥳, Score +2");
+          $('#curr-status').text("Game Ended,Guesed Correctly.\nCongrats 🥳, Score +2");
           const highScoreElement = document.getElementById("high-score");
           const currentHighScore = parseInt(highScoreElement.innerText);
           const newHighScore = currentHighScore + 2;
           highScoreElement.innerText = newHighScore.toString();
       } else {
           // Not matched
-          $('#curr-status').text("Game Ended,Guesed Incorrect,Better Luck Next Time😓")
+          $('#curr-status').text("Game Ended, Guesed Incorrect,\nBetter Luck Next Time😓")
           $("#r2c2, .selected").css("background-color", "red");
       }
 

@@ -1,6 +1,6 @@
 .hidden
  {
-    color: white; /* Make text color transparent */
+    color: transparent /* Make text color transparent */
 }
 
 body {
