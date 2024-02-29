@@ -142,3 +142,28 @@ function revealCenterCard() {
       resetGame(); // Reset the game
   });
 });
+
+
+// Function to display the rules as a prompt
+function displayRules() {
+    // Define the rules message
+    const rulesMessage = "Welcome to the Memory Game!\n\n" +
+                         "Rules:\n" +
+                         "- Click 'Start Game' to begin.\n" +
+                         "- Remember the Non Center cards value after it is briefly shown.\n" +
+                         "- After few seconds all cards are hidden and center card is diplayed."+
+                         "- Click on the card you think matches the center card.\n" +
+                         "- Each correct match earns you points.\n" +
+                         "- Click 'Reset Game' to start over.\n\n" +
+                         "Good luck and have fun!";
+
+    // Display the rules message as a prompt
+    alert(rulesMessage);
+}
+
+// Attach click event to the rules button
+$("#rules-btn").click(function() {
+    // Call the function to display the rules as a prompt
+    displayRules();
+});
+
