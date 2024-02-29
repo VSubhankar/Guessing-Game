@@ -1,0 +1,57 @@
+.hidden
+ {
+    color: white; /* Make text color transparent */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #59C173;
+    background: -webkit-linear-gradient(to right, #5D26C1, #a17fe0, #59C173);
+    background: linear-gradient(to right, #5D26C1, #a17fe0, #59C173); 
+
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    padding: 20px;
+}
+
+.scorecard{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.score1{
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    padding-bottom: 0px;
+    text-align: center;
+    width: 40%;
+}
+.score2{
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    padding-bottom: 0px;
+    text-align: center;
+    width: 40%;
+    margin-left: 10%;
+}
+
+.card {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    width: 20vw;
+    height: 20vh;
+
+}
+
+
