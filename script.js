@@ -8,6 +8,7 @@ $(document).ready(function() {
   let timeLeftCenter = 5; // Initial time left for revealing center mycard
   let chosenArray = []; // Static array of size 8
   let processingGuess = false;
+  let playable = true;
 
   // Function to hide all cards except the center mycard
   function hideCards() {
@@ -53,9 +54,10 @@ function setCardTexts() {
 
   // Function to reset the game
   function resetGame() {
-    timeLeft = 8; // Reset the time left for revealing cards
+    timeLeft = 5; // Reset the time left for revealing cards
     clearInterval(timer);
     processingGuess = false;
+    playable = false;
     
     $("#time-left").text(timeLeft);
     const cards = $(".mycard"); // Select all cards
@@ -80,6 +82,7 @@ function setCardTexts() {
       $("#r2c2").addClass("hidden");
       setCardTexts();
       revealCards();
+      playable = true;
 
       // Start the timer for revealing cards
       timer = setInterval(function() {
@@ -109,7 +112,7 @@ function revealCenterCard() {
 
   // Function to handle mycard click
   function handleCardClick() {
-    if (processingGuess) {
+    if (processingGuess || !playable) {
         return; // Ignore further clicks
     }
     else {
@@ -134,7 +137,7 @@ function revealCenterCard() {
       setTimeout(function() {
           $("#r2c2, .selected").css("background-color", "");
           resetGame();
-      }, 4000);
+      }, 2000);
     }
   }
 
